@@ -1,6 +1,6 @@
-# Spotify MCP v1.0.2
+# Spotify MCP v1.0.3
 
-- Fix immediate bridge startup failure by including the missing native-playback module.
-- Restore Spotify account configuration and connection status in PIHU.
-- Include the fix in macOS Apple silicon, macOS Intel, Windows x64, and Linux x64 packages.
-- Preserve existing Spotify credentials and account connections.
+- Connect Spotify using PIHU’s public client ID and Authorization Code with PKCE.
+- No manual client ID or client secret is required for normal sign-in.
+- Refresh PKCE tokens without a client secret; retain support for existing connections.
+- Include the native playback module on macOS, Windows, and Linux.
