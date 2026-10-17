@@ -14,6 +14,13 @@ import tempfile
 import zipfile
 
 
+def validate_spotify_source(source):
+    if json.loads((source / 'manifest.json').read_text())['id'] == 'spotify-mcp':
+        for name in ('bridge.mjs', 'native-playback.mjs'):
+            if not (source / name).is_file():
+                raise RuntimeError(f'Missing required Spotify runtime module: {name}')
+
+
 def run(*args, cwd):
     subprocess.run(args, cwd=cwd, check=True)
 
@@ -29,6 +36,7 @@ def build(source, output, repository):
     output.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='pihu-mcp-release-') as temporary:
         package = Path(temporary) / 'package'
+        validate_spotify_source(source)
         shutil.copytree(source, package, ignore=shutil.ignore_patterns('.git', '.github', '.venv', 'node_modules', '__pycache__', 'dist', '*.pyc', '.env', '.env.*', 'store', '*.db', '*.db-*', '*.sqlite*'))
         if runtime == 'python':
             if sys.version_info[:2] != (3, 11): raise ValueError('Build Python MCP releases with the shared runtime ABI: Python 3.11')

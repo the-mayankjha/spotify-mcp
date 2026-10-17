@@ -1,9 +1,6 @@
-# spotify-mcp — initial PIHU Market release
+# Spotify MCP v1.0.2
 
-- Independent package installation through the PIHU Market API.
-- Platform archives for macOS Apple silicon and Intel, Windows x64 and Linux x64.
-- Included package dependencies; uses PIHU's shared Python or Node runtime.
-- SHA-256 integrity verification and immutable version metadata.
-- Existing accounts and user data remain outside package version directories.
-
-- Corrected package schema metadata for strict registry validation.
+- Fix immediate bridge startup failure by including the missing native-playback module.
+- Restore Spotify account configuration and connection status in PIHU.
+- Include the fix in macOS Apple silicon, macOS Intel, Windows x64, and Linux x64 packages.
+- Preserve existing Spotify credentials and account connections.
