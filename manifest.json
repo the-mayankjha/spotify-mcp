@@ -13,7 +13,7 @@
   ],
   "type": "mcp",
   "display_name": "PIHU Spotify MCP",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Mayank Jha (PIHU)"
   },
@@ -80,5 +80,6 @@
     "command": "node",
     "args": [],
     "env": {}
-  }
+  },
+  "schema_version": 1
 }
