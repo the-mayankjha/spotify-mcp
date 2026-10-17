@@ -1,0 +1,84 @@
+{
+  "id": "spotify-mcp",
+  "description": "Search Spotify and control music playback with PIHU.",
+  "category": "Media",
+  "runtime": {
+    "type": "node"
+  },
+  "tags": [
+    "spotify",
+    "music",
+    "playback",
+    "search"
+  ],
+  "type": "mcp",
+  "display_name": "PIHU Spotify MCP",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mayank Jha (PIHU)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-mayankjha/spotify-mcp",
+    "branch": "main"
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "spotify_search",
+      "description": "Search Spotify for tracks, artists, albums, or playlists."
+    },
+    {
+      "name": "spotify_get_current_playback",
+      "description": "Get information about the user's current Spotify playback state."
+    },
+    {
+      "name": "spotify_playback_control",
+      "description": "Control Spotify playback ('play', 'pause', 'next', 'previous')."
+    },
+    {
+      "name": "spotify_set_volume",
+      "description": "Set the volume for the user's current Spotify playback device (0-100)."
+    },
+    {
+      "name": "spotify_list_user_playlists",
+      "description": "List playlists owned or followed by the current Spotify user."
+    }
+  ],
+  "tool_count": 5,
+  "requirements": [
+    "Python 3.10 or newer"
+  ],
+  "installation": {
+    "type": "archive",
+    "entrypoint": "build/index.js"
+  },
+  "name": "spotify-mcp",
+  "artifacts": [],
+  "compatibility": {
+    "minimum_pihu_version": "1.2.8",
+    "operating_systems": [
+      "macos",
+      "windows",
+      "linux"
+    ],
+    "architectures": [
+      "arm64",
+      "x64"
+    ]
+  },
+  "permissions": {
+    "network": true,
+    "filesystem": true,
+    "shell_execution": false,
+    "env_vars_required": []
+  },
+  "auth_required": true,
+  "entrypoint": {
+    "command": "node",
+    "args": [],
+    "env": {}
+  }
+}
